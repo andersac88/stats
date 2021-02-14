@@ -14,11 +14,14 @@ enum MatchResult {
 let manUnitedWins = 0;
 
 for (let match of reader.data) {
-	if (match[1] === 'Man United' && match[5] === MatchResult.Homewin) {
+	if (match[1] === 'Manchester United' && match[5] === MatchResult.Homewin) {
 		manUnitedWins++;
-	} else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
+	} else if (
+		match[2] === 'Manchester United' &&
+		match[5] === MatchResult.AwayWin
+	) {
 		manUnitedWins++;
 	}
 }
 
-console.log(`Man United has won ${manUnitedWins} games`);
+console.log(`Manchester United has won ${manUnitedWins} games`);
