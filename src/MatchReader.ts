@@ -2,7 +2,7 @@ import { dateStringToDate } from './utils';
 import { MatchResult } from './MatchResult';
 import { MatchData } from './MatchData';
 
-interface DataReader {
+export interface DataReader {
 	read(): void;
 	data: string[][];
 }
