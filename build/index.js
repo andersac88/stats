@@ -1,12 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MatchReader_1 = require("./MatchReader");
-var CsvFileReader_1 = require("./CsvFileReader");
-var WinsAnalysis_1 = require("./analyzers/WinsAnalysis");
+// import { CsvFileReader } from './CsvFileReader';
+// import { ConsoleReport } from './reportTargets/ConsoleReport';
+// import { WinsAnalysis } from './analyzers/WinsAnalysis';
 var Summary_1 = require("./Summary");
-var HtmlReport_1 = require("./reportTargets/HtmlReport");
-var csvFileReader = new CsvFileReader_1.CsvFileReader('football.csv');
-var matchReader = new MatchReader_1.MatchReader(csvFileReader);
-matchReader.load();
-var summary = new Summary_1.Summary(new WinsAnalysis_1.WinsAnalysis('Liverpool'), new HtmlReport_1.HtmlReport());
-summary.buildAndPrintReport(matchReader.matches);
+//import { HtmlReport } from './reportTargets/HtmlReport';
+// const csvFileReader = new CsvFileReader('football.csv');
+// const matchReader = new MatchReader(csvFileReader);
+// matchReader.load();
+var staticMatchReader = MatchReader_1.MatchReader.fromCsv('football.csv');
+staticMatchReader.load();
+// const summary = new Summary(new WinsAnalysis('Liverpool'), new HtmlReport());
+// summary.buildAndPrintReport(matchReader.matches)
+var staticSummary = Summary_1.Summary.winsAnalysisWithHtmlReport('Man United');
+staticSummary.buildAndPrintReport(staticMatchReader.matches);
